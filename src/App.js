@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import MyProfile from "./pages/MyProfile";
 import JournalistPage from "./pages/JournalistPage";
 import AddJournalist from "./pages/AddJournalist";
+import RemoveJournalist from "./pages/RemoveJournalist";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import SearchResults from "./pages/SearchResults";
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route path="/addjournalist">
           <AddJournalist />
+        </Route>
+        <Route path="/removejournalist">
+          <RemoveJournalist />
         </Route>
         <Route path="/signup" exact>
           <SignUp />

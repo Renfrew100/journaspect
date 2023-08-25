@@ -55,6 +55,24 @@ export async function addJournalist(firstName, lastName, photoFile) {
   return docRef.id;
 }
 
+export async function removeJournalist(firstName, lastName, photoFile) {
+  console.log(photoFile);
+  const path = 'images/' + photoFile.name;
+  const imageRef = ref(storage, path);
+  await uploadBytes(imageRef, photoFile);
+  console.log('file-uploaded');
+
+  const photoURL = await getDownloadURL(ref(storage, path));
+  const docRef = await addDoc(collection(db, 'journalists'), {
+    firstName: firstName,
+    lastName: lastName,
+    photoURL: photoURL,
+    tags: [firstName.toLowerCase(), lastName.toLowerCase()]
+  });
+  return docRef.id;
+}
+
+
 export async function getJournalist(id) {
   const docSnap = await getDoc(doc(db, 'journalists', id));
   if(!docSnap.exists()) {

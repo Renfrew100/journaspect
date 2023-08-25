@@ -9,7 +9,7 @@ class JournalistPage extends React.Component {
     super();
     this.state = {
       journalist: null
-    };
+    };  
   }
 
   async componentDidMount() {
