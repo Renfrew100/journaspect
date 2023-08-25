@@ -25,8 +25,18 @@ export default function BoxSx() {
             <Button variant="contained">Email</Button>
         </div>
 
+        <br></br>
+
         <div>
             <Button variant="contained">Password</Button>
+        </div>
+
+        <div>
+            <Button variant="contained">Blank</Button>
+        </div>
+
+        <div>
+            <Button variant="contained">NewBlank</Button>
         </div>
     </div>
     </ Box>

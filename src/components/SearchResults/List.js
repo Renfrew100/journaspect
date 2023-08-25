@@ -110,6 +110,11 @@ export default function FolderList(props) {
               Add Journalist
             </Button>
           </div>
+          <div className={styles.addJournalistDiv}>
+            <Button href="/removejournalist" class={classes.addJournalist}>
+              Remove Journalist
+            </Button>
+          </div>
         </List>
       </Card>
     </div>
