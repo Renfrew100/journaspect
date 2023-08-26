@@ -17,6 +17,17 @@ export default function BoxSx() {
         },
       }}
     >
+      <Box
+      sx={{
+        width: 400,
+        height: 1000,
+        bgcolor: 'primary.dark',
+        '&:hover': {
+          backgroundColor: 'primary.main',
+          opacity: [0.9, 0.8, 0.7],
+        },
+      }}
+    ></Box>
     <div>
         <div>
             <Button variant="contained">Your Name</Button>
@@ -32,11 +43,11 @@ export default function BoxSx() {
         </div>
 
         <div>
-            <Button variant="contained">Blank</Button>
+            <Button variant="contained">NewPassword</Button>
         </div>
 
         <div>
-            <Button variant="contained">NewBlank</Button>
+            <Button variant="contained">AnotherPassword</Button>
         </div>
     </div>
     </ Box>

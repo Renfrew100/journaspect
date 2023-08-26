@@ -102,6 +102,9 @@ export default function RAACard() {
           <Button onClick={toggleAddReview} style={{ fontFamily: "Poppins" }}>
             Add Review
           </Button>
+          <Button onClick={toggleAddReview} style={{ fontFamily: "Poppins" }}>
+            Remove Review
+          </Button>
           {addReview ? (
             <Dialog
               onClose={toggleAddReview}
@@ -111,6 +114,9 @@ export default function RAACard() {
               <div style={{ width: "500px" }}>
                 <DialogTitle style={{ fontFamily: "Poppins" }}>
                   Add Review
+                </DialogTitle>
+                <DialogTitle style={{ fontFamily: "Poppins" }}>
+                  Remove Review
                 </DialogTitle>
                 <DialogContent>
                   {user.name}:

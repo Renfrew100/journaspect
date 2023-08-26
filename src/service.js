@@ -1,15 +1,16 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, where, query, setDoc, doc, addDoc, getDoc, updateDoc, increment } from 'firebase/firestore';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut } from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB9a01S71En19HM5yi1G3sftbuxvarjDrY",
-    authDomain: "journaspect.firebaseapp.com",
-    projectId: "journaspect",
-    storageBucket: "journaspect.appspot.com",
-    messagingSenderId: "684108648570",
-    appId: "1:684108648570:web:f0fba6be0ca49c16292bc3"
+  apiKey: "AIzaSyA97XipM1XzOmFQqcuO52LO621w61CAD8o",
+  authDomain: "journaspect-81c48.firebaseapp.com",
+  projectId: "journaspect-81c48",
+  storageBucket: "journaspect-81c48.appspot.com",
+  messagingSenderId: "562258435625",
+  appId: "1:562258435625:web:aa405d2709f5c235158638",
+  measurementId: "G-8346B0SYZB"
 };
 
 console.log('initilizing firebase');
