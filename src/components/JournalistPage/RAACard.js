@@ -33,13 +33,22 @@ export default function RAACard() {
   const [addReview, setAddReview] = React.useState(false);
   const [reviews, setReviews] = React.useState([]);
   const [reviewRating, setReviewRating] = React.useState({
-    overallRating: 0,
-    ethicsRating: 0,
-    writingRating: 0,
-    accuracyRating: 0,
-    politicalRating: 0,
+    overallRating: 5,
+    ethicsRating: 5,
+    writingRating: 5,
+    accuracyRating: 5,
+    politicalRating: 5,
     writtenReview: "",
   });
+
+  const[reviewRatingDuplicate, setReviewRatingDuplicate] = React.useState({
+    overallRating: 5,
+    ethicsRating: 5,
+    writingRating: 5,
+    accuracyRating: 5,
+    politicalRating: 5,
+    writtenReview: "",
+  })
 
   const user = userManager.getCurrentUser();
 
@@ -111,146 +120,45 @@ export default function RAACard() {
               aria-labelledby="add-review-dialog"
               open={addReview}
             >
-              <div style={{ width: "500px" }}>
+              <div style={{ width: "8000px" }}>
                 <DialogTitle style={{ fontFamily: "Poppins" }}>
                   Add Review
                 </DialogTitle>
+                <Rating
+                    value={reviewRating.ethicsRating}
+                    onChange={(event, newValue) => {
+                      setReviewRating({
+                      ...reviewRating,
+                      ethicsRating: newValue,
+                      });
+                  }}
+                />
+                <Button
+                    onClick={handleSubmitReview}
+                    type="submit"
+                    style={{ fontFamily: "Poppins" }}
+                >
+                Submit
+                </Button>
                 <DialogTitle style={{ fontFamily: "Poppins" }}>
                   Remove Review
                 </DialogTitle>
-                <DialogContent>
-                  {user.name}:
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <TextField
-                      name="review"
-                      required
-                      multiline
-                      value={reviewRating.writtenReview}
-                      onChange={(event) => {
-                        setReviewRating({
-                          ...reviewRating,
-                          writtenReview: event.target.value,
-                        });
-                      }}
-                    />
-                    <div
-                      style={{
-                        margin: "10px",
-                        display: "inline-flex",
-                        flexDirection: "column",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "inline-flex",
-                          justifyContent: "space-between",
-                          fontFamily: "Poppins",
-                        }}
-                      >
-                        Overall Rating:{" "}
-                        <Rating
-                          value={reviewRating.overallRating}
-                          onChange={(event, newValue) => {
-                            setReviewRating({
-                              ...reviewRating,
-                              overallRating: newValue,
-                            });
-                          }}
-                        />
-                      </div>
-                      <div
-                        style={{
-                          display: "inline-flex",
-                          justifyContent: "space-between",
-                          fontFamily: "Poppins",
-                        }}
-                      >
-                        Ethics Rating (Optional):{" "}
-                        <Rating
-                          value={reviewRating.ethicsRating}
-                          onChange={(event, newValue) => {
-                            setReviewRating({
-                              ...reviewRating,
-                              ethicsRating: newValue,
-                            });
-                          }}
-                        />
-                      </div>
-                      <div
-                        style={{
-                          display: "inline-flex",
-                          justifyContent: "space-between",
-                          fontFamily: "Poppins",
-                        }}
-                      >
-                        Writing Rating (Optional):{" "}
-                        <Rating
-                          value={reviewRating.writingRating}
-                          onChange={(event, newValue) => {
-                            setReviewRating({
-                              ...reviewRating,
-                              writingRating: newValue,
-                            });
-                          }}
-                        />
-                      </div>
-                      <div
-                        style={{
-                          display: "inline-flex",
-                          justifyContent: "space-between",
-                          fontFamily: "Poppins",
-                        }}
-                      >
-                        Accuracy Rating (Optional):{" "}
-                        <Rating
-                          value={reviewRating.accuracyRating}
-                          onChange={(event, newValue) => {
-                            setReviewRating({
-                              ...reviewRating,
-                              accuracyRating: newValue,
-                            });
-                          }}
-                        />
-                      </div>
-                      <div
-                        style={{
-                          display: "inline-flex",
-                          justifyContent: "space-between",
-                          fontFamily: "Poppins",
-                        }}
-                      >
-                        Political Standing (Optional):{" "}
-                        <Rating
-                          value={reviewRating.politicalRating}
-                          onChange={(event, newValue) => {
-                            setReviewRating({
-                              ...reviewRating,
-                              politicalRating: newValue,
-                            });
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <div
-                      style={{ display: "flex", justifyContent: "flex-end" }}
-                    >
-                      <Button
-                        onClick={handleSubmitReview}
-                        type="submit"
-                        style={{ fontFamily: "Poppins" }}
-                      >
-                        Submit
-                      </Button>
-                      <Button
-                        onClick={toggleAddReview}
-                        style={{ fontFamily: "Poppins" }}
-                      >
-                        Cancel
-                      </Button>
-                    </div>
-                  </div>
-                </DialogContent>
+                <Rating
+                    value={reviewRatingDuplicate.ethicsRating}
+                    onChange={(event, newValue) => {
+                      setReviewRatingDuplicate({
+                      ...reviewRatingDuplicate,
+                      ethicsRating: newValue,
+                      });
+                  }}
+                />
+                <Button
+                    onClick={toggleAddReview}
+                    style={{ fontFamily: "Poppins" }}
+                >
+                Cancel
+                </Button>
+
               </div>
             </Dialog>
           ) : (
